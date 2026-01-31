@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+<a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm mb-3">Logout</a>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">Add New Event</div>
+            <div class="card-body">
+                <form method="POST">
+                    <input type="text" name="title" placeholder="Event Title" class="form-control mb-2" required>
+                    <input type="text" name="date" placeholder="Date (e.g. 25th Dec)" class="form-control mb-2" required>
+                    <input type="text" name="category" placeholder="Category (Tech, Music)" class="form-control mb-2" required>
+                    <textarea name="description" placeholder="Description" class="form-control mb-2"></textarea>
+                    <button type="submit" class="btn btn-dark w-100">Create Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Live Analytics: Guests per Event</div>
+            <div class="card-body">
+                <canvas id="eventChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>All Events</h3>
+<ul class="list-group">
+    {% for event in events %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ event.title }}
+        <span class="badge bg-primary rounded-pill">{{ event.guests|length }} Guests</span>
+    </li>
+    {% endfor %}
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('eventChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ titles|tojson }},
+            datasets: [{
+                label: '# of Guests',
+                data: {{ counts|tojson }},
+                backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            }]
+        }
+    });
+</script>
+{% endblock %}

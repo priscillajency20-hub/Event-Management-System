@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card shadow">
+    <div class="card-body">
+        <h2>{{ event.title }}</h2>
+        <p class="text-muted">{{ event.date }}</p>
+        <p>{{ event.description }}</p>
+        <hr>
+        <h4>Register for this Event</h4>
+        <form method="POST">
+            <div class="mb-3">
+                <label>Your Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Your Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Get Ticket</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
