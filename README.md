@@ -46,4 +46,5 @@ A full-stack Flask web application designed to streamline campus event managemen
 * **Password:** admin123
 
 ## 📸 Screenshots
-*(Optional: You can add screenshots of your project here later)*
+<img width="1914" height="863" alt="Screenshot 2025-11-24 153951" src="https://github.com/user-attachments/assets/8e5bb4c0-4c9d-4ffb-b955-d955ab1ca23f" /><img width="1897" height="896" alt="Screenshot 2025-11-24 154038" src="https://github.com/user-attachments/assets/03e4d874-b3e1-4aab-b5e9-e5c86185b458" />
+
