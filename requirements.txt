@@ -6,3 +6,4 @@ qrcode[pil]
 Pillow
 gunicorn
 werkzeug
+python-dotenv
