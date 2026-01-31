@@ -1,6 +1,7 @@
 Flask
 Flask-SQLAlchemy
 Flask-Bcrypt
+Flask-Login
 qrcode[pil]
 Pillow
 gunicorn
